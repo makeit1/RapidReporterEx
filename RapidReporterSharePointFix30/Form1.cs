@@ -32,19 +32,19 @@ namespace RapidReporterSharePointFix30
                 MessageBox.Show(@"File was empty or could not be read;");
                 return;
             }
-            if (text.Contains("<!--RR++V"))
+            if (text.Contains("<!--RRExV"))
             {
-                MessageBox.Show(@"File created with new version of Rapid Reporter++ and cannot be converted at this time");
+                MessageBox.Show(@"File created with new version of Rapid Reporter Ex and cannot be converted at this time");
                 return;
             }
             if (text.Contains("function ShowImgEle(eleId, img64)"))
             {
-                MessageBox.Show(@"File created with really old version of Rapid Reporter++ and cannot be converted at this time");
+                MessageBox.Show(@"File created with really old version of Rapid Reporter Ex and cannot be converted at this time");
                 return;
             }
             if (!text.Contains("function ShowImgEle(eleId, bigImgId, littleImgId)"))
             {
-                MessageBox.Show(@"File created with unknown version of Rapid Reporter++ and cannot be converted at this time");
+                MessageBox.Show(@"File created with unknown version of Rapid Reporter Ex and cannot be converted at this time");
                 return;
             }
             int count;
@@ -114,7 +114,7 @@ namespace RapidReporterSharePointFix30
                     errorCnt++;
                     continue;
                 }
-                if (text.Contains("<!--RR++V"))
+                if (text.Contains("<!--RRExV"))
                 {
                     File.Move(f, errorDir + Path.GetFileName(f));
                     errorCnt++;

@@ -192,3 +192,6 @@ $RECYCLE.BIN/
 # Windows image file caches
 Thumbs.db
 ehthumbs.db
+
+# Visual Studio Solution folder
+.vs/

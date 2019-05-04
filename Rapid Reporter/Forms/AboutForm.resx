@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -118,13 +118,14 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="label1.Text" xml:space="preserve">
-    <value>This software is a fork of the application "Rapid Reporter", originally published by Shmuel Gershon at http://testing.gershon.info/reporter/, and was listed as Copyright 2010+. The original application listed in it's readme document that "The application is released in a Creative Commons license BY-NC-SA.", which can be found here: http://creativecommons.org/licenses/by-nc-sa/4.0/.
+    <value>Rapid Reporter Ex by @makeit1 is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License: http://creativecommons.org/licenses/by-nc-sa/4.0/.
 
-Many changes have been made, and the source code has almost completely been rewritten. Because of these changes, no warranty is given by the original author of "Rapid Reporter", and no warranty is given by the creators of this fork. The original author has not given any endorsement to this fork. The modifications and additions to this work are published under the CC BY-NC-SA license as well, found here: http://creativecommons.org/licenses/by-nc-sa/4.0/. 
+Based on a work at http://testing.gershon.info/reporter/ by Shmuel Gershon and at https://github.com/jankcat/rapidreporterplusplus by Timothy Watkins.
 
-This fork is Copyright 2015+ Timothy Watkins.
+Copyright 2010+ Shmuel Gershon
+Copyright 2015+ Timothy Watkins
+Copyright 2019+ @makeit1
 
-Info, new versions and reporting bugs:
-https://github.com/jankcat/rapidreporterplusplus</value>
+</value>
   </data>
 </root>
