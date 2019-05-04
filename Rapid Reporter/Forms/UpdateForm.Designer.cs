@@ -80,7 +80,7 @@
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(313, 29);
             this.label5.TabIndex = 4;
-            this.label5.Text = "Visit https://github.com/jankcat/rapidreporterplusplus/releases to download the l" +
+            this.label5.Text = "Visit https://github.com/makeit1/rapidreporterplusplus/releases to download the l" +
     "atest version!\r\n";
             // 
             // btnUpdate
