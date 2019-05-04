@@ -69,6 +69,8 @@ namespace Rapid_Reporter.Forms
             TransparencySlide.Value = trans;
             _ptn.InitializeComponent();
             _ptn.Sm = this;
+            TextCompositionManager.AddPreviewTextInputHandler(NoteContent, OnPreviewTextInput);
+            TextCompositionManager.AddPreviewTextInputUpdateHandler(NoteContent, OnPreviewTextInputUpdate);
             Task.Run((Action)Updater.CheckVersion);
             NoteContent.Focus();
             Logger.Record("[SMWidget]: App constructor initialized and CLI executed.", "SMWidget", "info");
@@ -149,11 +151,55 @@ namespace Rapid_Reporter.Forms
             DragMove();
         }
 
+        private bool isIMEinput = false;
+        private int enterKeyBuffer { get; set; } //buffer for ignore Enter key at IME input
+
+        private void OnPreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            if (isIMEinput)
+            {
+                enterKeyBuffer = 1;
+            }
+            else
+            {
+                enterKeyBuffer = 0;
+            }
+            isIMEinput = false;
+        }
+
+        private void OnPreviewTextInputUpdate(object sender, TextCompositionEventArgs e)
+        {
+            if (e.TextComposition.CompositionText.Length == 0)
+            {
+                isIMEinput = false;
+            }
+            else
+            {
+                isIMEinput = true;
+            }
+        }
+
+        private void NoteContent_KeyUp(object sender, System.Windows.Input.KeyEventArgs e)
+        {
+            if (isIMEinput == false && e.Key == Key.Enter && enterKeyBuffer == 1)
+            {
+                enterKeyBuffer = 0;
+            }
+            else if (isIMEinput == false && e.Key == Key.Enter && enterKeyBuffer == 0)
+            {
+                NoteContent_KeyUp_launch(sender, e);
+            }
+            else if (e.Key != Key.Enter)
+            {
+                NoteContent_KeyUp_launch(sender, e);
+            }
+        }
+
         /** Note Event Handling **/
         // Very important functions happen during note taking:
         //  Every submittal saves the note to disk (data is always safe)
         //  Type of note can be changed easily at all times, by pressing up/down
-        private void NoteContent_KeyUp(object sender, KeyEventArgs e)
+        private void NoteContent_KeyUp_launch(object sender, KeyEventArgs e)
         {
             var notesLenght = _currentSession.NoteTypes.Length - 1;
             

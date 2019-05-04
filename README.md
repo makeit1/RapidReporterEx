@@ -1,6 +1,12 @@
-# rapidreporterplusplus
-A fork of http://testing.gershon.info/reporter/
+# RapidReporterEx
+A fork of https://github.com/makeit1/RapidReporterEx
 
-Please read the file titled "Readme.docx" for detailed instructions.
+Please read the following documents for detailed instructions.
 
-The secondary project is a converter tool for Issue #30, convert RR2.4/2.5 sessions into RR2.6 sessions.
+* Rapid Reporter User Guide:
+http://testing.gershon.info/wp-content/uploads/Rapid-Reporter-Readme.pdf
+
+* Rapid Reporter ++ Readme:
+https://github.com/jankcat/rapidreporterplusplus/blob/r2.7/Readme.docx
+
+* Readme.docx

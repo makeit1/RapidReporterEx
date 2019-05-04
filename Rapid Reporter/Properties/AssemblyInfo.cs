@@ -6,13 +6,13 @@ using System.Resources;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Rapid Reporter++")]
-[assembly: AssemblyDescription("A fork of Rapid Reporter.")]
+[assembly: AssemblyTitle("Rapid Reporter Ex")]
+[assembly: AssemblyDescription("A fork of Rapid Reporter++.")]
 [assembly: AssemblyConfiguration("Requires .NET framework 4.5")]
-[assembly: AssemblyCompany("Timothy Watkins")]
-[assembly: AssemblyProduct("Rapid Reporter++")]
-[assembly: AssemblyCopyright("Copyright © 2014-2015 Timothy Watkins.")]
-[assembly: AssemblyTrademark("Rapid Reporter++")]
+[assembly: AssemblyCompany("@makeit1")]
+[assembly: AssemblyProduct("Rapid Reporter Ex")]
+[assembly: AssemblyCopyright("Copyright © 2019 @makeit1")]
+[assembly: AssemblyTrademark("Rapid Reporter Ex")]
 [assembly: AssemblyCulture("")]
 
 // Setting ComVisible to false makes the types in this assembly not visible 
@@ -50,7 +50,7 @@ using System.Resources;
 // You can specify all the values or you can default the Build and Revision Numbers 
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("2.6.0.0")]
-[assembly: AssemblyFileVersion("2.6.0.0")]
-[assembly: GuidAttribute("7AEB6D97-FCA8-4197-8DBD-0017E3B00468")]
+[assembly: AssemblyVersion("3.0.0.0")]
+[assembly: AssemblyFileVersion("3.0.0.0")]
+[assembly: Guid("162CCC27-FBDB-42F8-8DD0-D7FC63F2FB4C")]
 [assembly: NeutralResourcesLanguageAttribute("en-US")]

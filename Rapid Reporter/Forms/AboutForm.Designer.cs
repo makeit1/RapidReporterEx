@@ -1,4 +1,4 @@
-﻿namespace Rapid_Reporter.Forms
+namespace Rapid_Reporter.Forms
 {
     partial class AboutForm
     {
@@ -39,7 +39,7 @@
             // 
             this.appName.AutoSize = true;
             this.appName.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.appName.Location = new System.Drawing.Point(12, 9);
+            this.appName.Location = new System.Drawing.Point(12, 8);
             this.appName.Name = "appName";
             this.appName.Size = new System.Drawing.Size(96, 13);
             this.appName.TabIndex = 0;
@@ -49,7 +49,7 @@
             // 
             this.appVer.AutoSize = true;
             this.appVer.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.appVer.Location = new System.Drawing.Point(311, 9);
+            this.appVer.Location = new System.Drawing.Point(311, 8);
             this.appVer.Name = "appVer";
             this.appVer.Size = new System.Drawing.Size(96, 13);
             this.appVer.TabIndex = 1;
@@ -58,19 +58,18 @@
             // 
             // label1
             // 
-            this.label1.Location = new System.Drawing.Point(12, 34);
+            this.label1.Location = new System.Drawing.Point(12, 31);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(395, 228);
+            this.label1.Size = new System.Drawing.Size(395, 210);
             this.label1.TabIndex = 2;
             this.label1.Text = resources.GetString("label1.Text");
-            this.label1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // btnClose
             // 
             this.btnClose.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnClose.Location = new System.Drawing.Point(332, 265);
+            this.btnClose.Location = new System.Drawing.Point(332, 245);
             this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(75, 23);
+            this.btnClose.Size = new System.Drawing.Size(75, 21);
             this.btnClose.TabIndex = 3;
             this.btnClose.Text = "&Close";
             this.btnClose.UseVisualStyleBackColor = true;
@@ -79,10 +78,10 @@
             // AboutForm
             // 
             this.AcceptButton = this.btnClose;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnClose;
-            this.ClientSize = new System.Drawing.Size(419, 297);
+            this.ClientSize = new System.Drawing.Size(419, 274);
             this.ControlBox = false;
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.label1);
@@ -94,7 +93,7 @@
             this.Name = "AboutForm";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
-            this.Text = "About RR++";
+            this.Text = "About Rapid Reporter Ex";
             this.TopMost = true;
             this.Load += new System.EventHandler(this.AboutForm_Load);
             this.ResumeLayout(false);
