@@ -163,17 +163,6 @@ namespace Rapid_Reporter
             return openFileDialog.ShowDialog() == DialogResult.OK ? openFileDialog.FileName : "";
         }
 
-        private static void RemoveOldCsvFile(string csvFileFull)
-        {
-            try
-            {
-                File.Delete(csvFileFull);
-            }
-            catch
-            {
-            }
-        }
-
         private static string BuildTableRow(string rowType, string entryType, string timestamp, string value)
         {
             return
@@ -257,7 +246,6 @@ namespace Rapid_Reporter
                                      Htmlstrings.JTableEnd, htmlFileBufferPopups, Htmlstrings.MHtmlEnd);
 
                     File.WriteAllText(htmlFileFull, output, Encoding.UTF8);
-                    RemoveOldCsvFile(csvFileFull);
                     MessageBox.Show("The HTML was created successfully!\nFile created: " + htmlFileFull, "HTML Conversion Successful!", MessageBoxButton.OK, MessageBoxImage.Information);
                 }
                 catch (Exception ex)
