@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Globalization;
 using System.IO;
 using System.Linq;
@@ -33,7 +33,7 @@ namespace Rapid_Reporter
         public string[] NoteTypes = { "Prerequisite", "Test", "Success", "Bug/Issue", "Note", "Follow Up", "Summary" };
 
         // Session files:
-        public string WorkingDir = Directory.GetCurrentDirectory() + @"\";  // File to write the session to
+        public string WorkingDir = Directory.GetCurrentDirectory() + @"\";  // Directory to write the session to
         private string _sessionFile;      // File to write the session to
         private string _sessionFileFull;  // workingDir + sessionFile
         public string SessionNote = "";         // Latest note only
@@ -53,8 +53,10 @@ namespace Rapid_Reporter
             Logger.Record("[StartSession]: Session configuration starting", "Session", "info");
 
             StartingTime = DateTime.Now; // The time the session started is used for many things, like knowing the session file name
+            WorkingDir = Directory.GetCurrentDirectory() + @"\" + StartingTime.ToString("yyyyMMdd_HHmmss") + @"\";
             _sessionFile = StartingTime.ToString("yyyyMMdd_HHmmss") + ".csv";
             _sessionFileFull = WorkingDir + _sessionFile; // All files should be written to a working directory -- be it current or not.
+            CreateWorkingDir(WorkingDir);
             SaveToSessionNotes(ColumnHeaders + "\n"); // Headers of the notes table
             //UpdateNotes("Reporter Tool Version", System.Windows.Forms.Application.ProductVersion);
             UpdateNotes("Session Reporter", Tester);
@@ -62,6 +64,23 @@ namespace Rapid_Reporter
             UpdateNotes("Session Charter", Charter);
             UpdateNotes("Environment", Environment);
             UpdateNotes("Versions", Versions);
+        }
+        
+        private void CreateWorkingDir(string path)
+        {
+            if (Directory.Exists(path))
+            {
+                throw new InvalidDirecotoryException("A folder " + path + " already exits.");
+            }
+
+            try
+            {
+                Directory.CreateDirectory(path);
+            }
+            catch (Exception)
+            {
+                throw new InvalidDirecotoryException("A folder " + path + " could not be created.");
+            }
         }
 
         internal bool ResumeSession()

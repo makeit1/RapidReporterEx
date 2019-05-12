@@ -325,26 +325,35 @@ namespace Rapid_Reporter.Forms
                     Logger.Record("\t[StateMove]: Session Stage moving -> Versions", "SMWidget", "info");
                     break;
                 case Session.SessionStartingStage.Notes:
-                    NoteContent.ToolTip = (100 < _currentSession.Charter.Length) ? _currentSession.Charter.Remove(100)+"..." : _currentSession.Charter;
-                    NoteType.Text = _currentSession.NoteTypes[_currentNoteType] + ":";
-                    prevType.Text = "? " + _currentSession.NoteTypes[_prevNoteType] + ":";
-                    nextType.Text = "? " + _currentSession.NoteTypes[_nextNoteType] + ":";
-                    NoteType.FontSize = 21;
-                    if (!skipStartSession) _currentSession.StartSession(); 
-                    ProgressGo(90); 
-                    t90.IsChecked = true;
-                    ScreenShot.IsEnabled = true; 
-                    RTFNoteBtn.IsEnabled = true;
-                    ResumeSession.IsEnabled = false;
-                    PauseSession.IsEnabled = true;
-                    // Change the icon of the image of the buttons, to NOT appear disabled.
-                    CloseButton.ToolTip = "Save and Quit";
-                    SaveAndQuitOption.Header = "Save and Quit";
-                    SaveAndNewOption.IsEnabled = true;
-                    ScreenShotIcon.Source = new BitmapImage(new Uri("iconshot.png", UriKind.Relative));
-                    RTFNoteBtnIcon.Source = new BitmapImage(new Uri("iconnotes.png", UriKind.Relative));
-                    TimerMenu.IsEnabled = true;
-                    Logger.Record("\t\t[StateMove]: Session Stage moving -> Notes", "SMWidget", "info");
+                    try
+                    {
+                        NoteContent.ToolTip = (100 < _currentSession.Charter.Length) ? _currentSession.Charter.Remove(100) + "..." : _currentSession.Charter;
+                        NoteType.Text = _currentSession.NoteTypes[_currentNoteType] + ":";
+                        prevType.Text = "? " + _currentSession.NoteTypes[_prevNoteType] + ":";
+                        nextType.Text = "? " + _currentSession.NoteTypes[_nextNoteType] + ":";
+                        NoteType.FontSize = 21;
+                        if (!skipStartSession) _currentSession.StartSession();
+                        ProgressGo(90);
+                        t90.IsChecked = true;
+                        ScreenShot.IsEnabled = true;
+                        RTFNoteBtn.IsEnabled = true;
+                        ResumeSession.IsEnabled = false;
+                        PauseSession.IsEnabled = true;
+                        // Change the icon of the image of the buttons, to NOT appear disabled.
+                        CloseButton.ToolTip = "Save and Quit";
+                        SaveAndQuitOption.Header = "Save and Quit";
+                        SaveAndNewOption.IsEnabled = true;
+                        ScreenShotIcon.Source = new BitmapImage(new Uri("iconshot.png", UriKind.Relative));
+                        RTFNoteBtnIcon.Source = new BitmapImage(new Uri("iconnotes.png", UriKind.Relative));
+                        TimerMenu.IsEnabled = true;
+                        Logger.Record("\t\t[StateMove]: Session Stage moving -> Notes", "SMWidget", "info");
+                    }
+                    catch (InvalidDirecotoryException e)
+                    {
+                        string msg = e.Message + " Application closed.";
+                        System.Windows.MessageBox.Show(msg, "Unable to Create a Folder", MessageBoxButton.OK, MessageBoxImage.Error);
+                        ExitApp(true);
+                    }
                     break;
                 default:
                     Logger.Record("\t[StateMove]: Session Stage moving -> NULL", "SMWidget", "error");
