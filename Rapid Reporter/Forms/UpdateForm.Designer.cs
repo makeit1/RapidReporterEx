@@ -1,4 +1,4 @@
-﻿namespace Rapid_Reporter.Forms
+namespace Rapid_Reporter.Forms
 {
     partial class UpdateForm
     {
@@ -41,53 +41,53 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 9);
+            this.label1.Location = new System.Drawing.Point(12, 8);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(118, 13);
+            this.label1.Size = new System.Drawing.Size(128, 12);
             this.label1.TabIndex = 0;
             this.label1.Text = "Your current version is: ";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 25);
+            this.label2.Location = new System.Drawing.Point(12, 23);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(137, 13);
+            this.label2.Size = new System.Drawing.Size(149, 12);
             this.label2.TabIndex = 1;
             this.label2.Text = "The most recent version is: ";
             // 
             // myver
             // 
             this.myver.AutoSize = true;
-            this.myver.Location = new System.Drawing.Point(136, 9);
+            this.myver.Location = new System.Drawing.Point(136, 8);
             this.myver.Name = "myver";
-            this.myver.Size = new System.Drawing.Size(16, 13);
+            this.myver.Size = new System.Drawing.Size(11, 12);
             this.myver.TabIndex = 2;
             this.myver.Text = "...";
             // 
             // serverver
             // 
             this.serverver.AutoSize = true;
-            this.serverver.Location = new System.Drawing.Point(155, 25);
+            this.serverver.Location = new System.Drawing.Point(155, 23);
             this.serverver.Name = "serverver";
-            this.serverver.Size = new System.Drawing.Size(16, 13);
+            this.serverver.Size = new System.Drawing.Size(11, 12);
             this.serverver.TabIndex = 3;
             this.serverver.Text = "...";
             // 
             // label5
             // 
-            this.label5.Location = new System.Drawing.Point(12, 41);
+            this.label5.Location = new System.Drawing.Point(12, 38);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(313, 29);
+            this.label5.Size = new System.Drawing.Size(313, 50);
             this.label5.TabIndex = 4;
-            this.label5.Text = "Visit https://github.com/makeit1/rapidreporterplusplus/releases to download the l" +
-    "atest version!\r\n";
+            this.label5.Text = "Visit https://github.com/makeit1/RapidReporterEx/releases to download the latest " +
+    "version!\r\n";
             // 
             // btnUpdate
             // 
-            this.btnUpdate.Location = new System.Drawing.Point(84, 76);
+            this.btnUpdate.Location = new System.Drawing.Point(82, 106);
             this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(159, 23);
+            this.btnUpdate.Size = new System.Drawing.Size(159, 21);
             this.btnUpdate.TabIndex = 5;
             this.btnUpdate.Text = "Show Me The Update Site!";
             this.btnUpdate.UseVisualStyleBackColor = true;
@@ -95,9 +95,9 @@
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(84, 105);
+            this.btnCancel.Location = new System.Drawing.Point(82, 133);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(159, 23);
+            this.btnCancel.Size = new System.Drawing.Size(159, 21);
             this.btnCancel.TabIndex = 6;
             this.btnCancel.Text = "Remind Me Later!";
             this.btnCancel.UseVisualStyleBackColor = true;
@@ -105,9 +105,9 @@
             // 
             // btnIgnore
             // 
-            this.btnIgnore.Location = new System.Drawing.Point(84, 134);
+            this.btnIgnore.Location = new System.Drawing.Point(82, 160);
             this.btnIgnore.Name = "btnIgnore";
-            this.btnIgnore.Size = new System.Drawing.Size(159, 23);
+            this.btnIgnore.Size = new System.Drawing.Size(159, 21);
             this.btnIgnore.TabIndex = 7;
             this.btnIgnore.Text = "Ingore This Version!";
             this.btnIgnore.UseVisualStyleBackColor = true;
@@ -115,9 +115,9 @@
             // 
             // UpdateForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(335, 171);
+            this.ClientSize = new System.Drawing.Size(335, 193);
             this.ControlBox = false;
             this.Controls.Add(this.btnIgnore);
             this.Controls.Add(this.btnCancel);

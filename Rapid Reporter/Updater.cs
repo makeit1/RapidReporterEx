@@ -35,7 +35,7 @@ namespace Rapid_Reporter
             {
                 case UpdateChosen.Update:
                     SetAllowedToCheckValue(new Version(0, 0, 0, 0));
-                    System.Diagnostics.Process.Start("https://github.com/makeit1/rapidreporterplusplus/releases");
+                    System.Diagnostics.Process.Start("https://github.com/makeit1/RapidReporterEx/releases");
                     return;
                 case UpdateChosen.Skip:
                     SetAllowedToCheckValue(parsedVersion);
@@ -85,8 +85,7 @@ namespace Rapid_Reporter
 
         private static Version GetServerVersion()
         {
-            var verCall = HttpCallUtil.HttpGetCall(@"https://raw.githubusercontent.com/makeit1/rapidreporterplusplus/development/currentVersion.txt"); //development
-            //var verCall = HttpCallUtil.HttpGetCall(@"https://raw.githubusercontent.com/makeit1/rapidreporterplusplus/master/currentVersion.txt"); //master
+            var verCall = HttpCallUtil.HttpGetCall(@"https://raw.githubusercontent.com/makeit1/RapidReporterEx/master/currentVersion.txt"); // master
             if (string.IsNullOrWhiteSpace(verCall.Message)) return null;
             var ver = verCall.Message.Split(Convert.ToChar("."));
             if (ver.Length != 4) return null;
