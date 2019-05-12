@@ -65,14 +65,22 @@ namespace Rapid_Reporter
             UpdateNotes("Environment", Environment);
             UpdateNotes("Versions", Versions);
         }
-
-        private void CreateWorkingDir(String path)
+        
+        private void CreateWorkingDir(string path)
         {
             if (Directory.Exists(path))
             {
-                throw new InvalidDirecotoryException("A folder " + path + " already exits or could not be created.");
+                throw new InvalidDirecotoryException("A folder " + path + " already exits.");
             }
-            Directory.CreateDirectory(path);
+
+            try
+            {
+                Directory.CreateDirectory(path);
+            }
+            catch (Exception)
+            {
+                throw new InvalidDirecotoryException("A folder " + path + " could not be created.");
+            }
         }
 
         internal bool ResumeSession()
