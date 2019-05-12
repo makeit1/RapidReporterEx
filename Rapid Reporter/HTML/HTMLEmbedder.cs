@@ -51,13 +51,6 @@ namespace Rapid_Reporter.HTML
                 fileStream.Read(numArray, 0, Convert.ToInt32(fileStream.Length));
                 var str = "data:image/png;base64," + Convert.ToBase64String(numArray, Base64FormattingOptions.None);
                 fileStream.Close();
-                try
-                {
-                    File.Delete(filename);
-                }
-                catch
-                {
-                }
                 return str;
             }
             catch
@@ -75,13 +68,6 @@ namespace Rapid_Reporter.HTML
                 fileStream.Read(numArray, 0, Convert.ToInt32(fileStream.Length));
                 var @string = Encoding.UTF8.GetString(numArray);
                 fileStream.Close();
-                try
-                {
-                    File.Delete(filename);
-                }
-                catch
-                {
-                }
                 return @string;
             }
             catch
