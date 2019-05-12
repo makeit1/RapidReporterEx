@@ -333,6 +333,7 @@ namespace Rapid_Reporter.Forms
                         nextType.Text = "? " + _currentSession.NoteTypes[_nextNoteType] + ":";
                         NoteType.FontSize = 21;
                         if (!skipStartSession) _currentSession.StartSession();
+                        SetWorkingDir(_currentSession.WorkingDir);
                         ProgressGo(90);
                         t90.IsChecked = true;
                         ScreenShot.IsEnabled = true;
