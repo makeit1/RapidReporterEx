@@ -31,7 +31,6 @@ namespace Rapid_Reporter.Forms
     public partial class PlainTextNote
     {
         public Boolean ForceClose = false;  // We keep the window open (although hidden) until the app is closed.
-        int _currentPlainTextNote = 1;             // The number of the notes helps putting them in order, and finding them between the files (timestamp alone may confuse people).
         public SmWidget Sm;                 // Our interface to toggle the visual of the button in the main window is by direct referencing.
         public string WorkingDir = Directory.GetCurrentDirectory() + @"\";      // The directory to save files
 
@@ -75,7 +74,7 @@ namespace Rapid_Reporter.Forms
             {
                 Logger.Record("\t[save_Click]: PlainText Note not empty, will save", "PlainTextNote", "info");
                 // Name the note, save to file
-                Sm.PlainTextNoteName = _currentPlainTextNote++.ToString(CultureInfo.InvariantCulture) + "_" + DateTime.Now.ToString("yyyyMMdd_HHmmss") + ".txt";
+                Sm.PlainTextNoteName = DateTime.Now.ToString("yyyyMMdd_HHmmss") + ".txt";
                 bool exDrRetry;
                 do
                 {
