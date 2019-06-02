@@ -74,7 +74,7 @@ namespace Rapid_Reporter.Forms
             {
                 Logger.Record("\t[save_Click]: PlainText Note not empty, will save", "PlainTextNote", "info");
                 // Name the note, save to file
-                Sm.PlainTextNoteName = generateFilename();
+                Sm.PlainTextNoteName = GenerateFilename();
                 bool exDrRetry;
                 do
                 {
@@ -114,7 +114,7 @@ namespace Rapid_Reporter.Forms
             Logger.Record("[save_Click]: PlainText Note saving mechanism done. Closed (hidden).", "PlainTextNote", "info");
         }
 
-        private string generateFilename()
+        private string GenerateFilename()
         {
             string filename;
             do
