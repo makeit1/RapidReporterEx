@@ -106,9 +106,29 @@ namespace Rapid_Reporter.Forms
         //// Mainly, the session should be terminated (timing notes added to file too) and all windows closed.
         private void CloseButton_Click(object sender, RoutedEventArgs e)
         {
-            Logger.Record("[CloseButton_Click]: Closing Form...", "SMWidget", "info");
-            Close();
+            if (_currentStage != Session.SessionStartingStage.Notes)
+            {
+                Close();
+            }
+            string[] msg = {
+                "Are you sure you want to create a html file and close the app?\n\n",
+                "Yes:\tCreate a html file and close the app.\n",
+                "No:\tClose the app without creating a html file.\n",
+                "Cancel:\tDon't close the app."
+            };
+            MessageBoxResult result = System.Windows.MessageBox.Show(String.Join("",msg), "User Confirmation", MessageBoxButton.YesNoCancel);
+            if (result == MessageBoxResult.Yes) {
+                Logger.Record("[CloseButton_Click]: Closing Form (Yes button was clicked)...", "SMWidget", "info");
+                Close();
+            }
+            else if (result == MessageBoxResult.No)
+            {
+                Logger.Record("[CloseButton_Click]: Closing Form (No button was clicked)...", "SMWidget", "info");
+                _currentSession.createHTML = false;
+                Close();
+            }
         }
+
         // Closing the form can't just close the window, it has to follow the finalization process
         private void SMWidgetForm_Closed(object sender, EventArgs e)
         {
@@ -663,6 +683,26 @@ namespace Rapid_Reporter.Forms
         }
 
         private void SaveAndNewOption_Click(object sender, RoutedEventArgs e)
+        {
+            string[] msg = {
+                "Are you sure you want to create a html file of the current session before starting new session?\n\n",
+                "Yes:\tCreate a html file and start new session.\n",
+                "No:\tStart new session without creating a html file.\n",
+                "Cancel:\tDon't close the current session."
+            };
+            MessageBoxResult result = System.Windows.MessageBox.Show(String.Join("", msg), "User Confirmation", MessageBoxButton.YesNoCancel);
+            if (result == MessageBoxResult.Yes)
+            {
+                CloseAndStartSession();
+            }
+            else if (result == MessageBoxResult.No)
+            {
+                _currentSession.createHTML = false;
+                CloseAndStartSession();
+            }
+        }
+
+        private void CloseAndStartSession()
         {
             // Session
             Logger.Record("[SaveAndNewOption_Click]: Closing Session...", "SMWidget", "info");
