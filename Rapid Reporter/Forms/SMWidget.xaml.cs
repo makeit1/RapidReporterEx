@@ -28,7 +28,6 @@ namespace Rapid_Reporter.Forms
         // Session Notes variables
         private int _currentNoteType;		// The actual types are controlled by the Session class.
         private int _prevNoteType; private int _nextNoteType; // Used for the hints about the next note up or down.
-        private int _currentScreenshot = 1;		// The number of the screenshot (increases by 1). Helps putting them in order, and finding them between multiple the files.
         private string _screenshotName = "";		// Attached to a Session Note.
         public string PlainTextNoteName = "";			// Attached to a Session Note. Public because it is used *directly* by the RTFNote
 
@@ -543,7 +542,7 @@ namespace Rapid_Reporter.Forms
             bool exDrRetry;
 
             // Name the screenshot, save to disk
-            _screenshotName = _currentScreenshot++.ToString(CultureInfo.InvariantCulture) + "_" + DateTime.Now.ToString("yyyyMMdd_HHmmss") + ".jpg";
+            _screenshotName = GenerateFilename();
             do
             {
                 exDrRetry = false;
@@ -562,6 +561,16 @@ namespace Rapid_Reporter.Forms
             // Put a visual effect to remember the tester there's an image on the attachment barrel
             var effect = new BevelBitmapEffect {BevelWidth = 2, EdgeProfile = EdgeProfile.BulgedUp};
             ScreenShot.BitmapEffect = effect;
+        }
+
+        private string GenerateFilename()
+        {
+            string filename;
+            do
+            {
+                filename = DateTime.Now.ToString("yyyyMMdd_HHmmss") + ".jpg";
+            } while (System.IO.File.Exists(_currentSession.WorkingDir + filename));
+            return filename;
         }
 
         // The functions below set/unset the hotkey for screenshot
@@ -666,7 +675,6 @@ namespace Rapid_Reporter.Forms
             _currentNoteType = 0;		// The actual types are controlled by the Session class.
             _prevNoteType = 0;
             _nextNoteType = 0; // Used for the hints about the next note up or down.
-            _currentScreenshot = 1;		// The number of the screenshot (increases by 1). Helps putting them in order, and finding them between multiple the files.
             _screenshotName = "";		// Attached to a Session Note.
             PlainTextNoteName = "";			// Attached to a Session Note. Public because it is used *directly* by the RTFNote
             IsPlainTextDiagOpen = false;
