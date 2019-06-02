@@ -542,7 +542,7 @@ namespace Rapid_Reporter.Forms
             bool exDrRetry;
 
             // Name the screenshot, save to disk
-            _screenshotName = GenerateFilename();
+            _screenshotName = CommonUtil.GenerateFilename(_currentSession.WorkingDir, ".jpg");
             do
             {
                 exDrRetry = false;
@@ -561,16 +561,6 @@ namespace Rapid_Reporter.Forms
             // Put a visual effect to remember the tester there's an image on the attachment barrel
             var effect = new BevelBitmapEffect {BevelWidth = 2, EdgeProfile = EdgeProfile.BulgedUp};
             ScreenShot.BitmapEffect = effect;
-        }
-
-        private string GenerateFilename()
-        {
-            string filename;
-            do
-            {
-                filename = DateTime.Now.ToString("yyyyMMdd_HHmmss") + ".jpg";
-            } while (System.IO.File.Exists(_currentSession.WorkingDir + filename));
-            return filename;
         }
 
         // The functions below set/unset the hotkey for screenshot

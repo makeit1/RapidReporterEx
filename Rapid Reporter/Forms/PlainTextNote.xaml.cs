@@ -74,7 +74,7 @@ namespace Rapid_Reporter.Forms
             {
                 Logger.Record("\t[save_Click]: PlainText Note not empty, will save", "PlainTextNote", "info");
                 // Name the note, save to file
-                Sm.PlainTextNoteName = GenerateFilename();
+                Sm.PlainTextNoteName = CommonUtil.GenerateFilename(WorkingDir, ".txt");
                 bool exDrRetry;
                 do
                 {
@@ -112,16 +112,6 @@ namespace Rapid_Reporter.Forms
             // We not really 'close' the window. Close function deals with whether hiding or closing it.
             Close();
             Logger.Record("[save_Click]: PlainText Note saving mechanism done. Closed (hidden).", "PlainTextNote", "info");
-        }
-
-        private string GenerateFilename()
-        {
-            string filename;
-            do
-            {
-                filename = DateTime.Now.ToString("yyyyMMdd_HHmmss") + ".txt";
-            } while (System.IO.File.Exists(WorkingDir + filename));
-            return filename;
         }
 
         // Always hide the window. Unless the app is being closed completely, then close too.
