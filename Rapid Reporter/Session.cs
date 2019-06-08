@@ -44,6 +44,7 @@ namespace Rapid_Reporter
         public enum SessionStartingStage { Tester, ScenarioId, Charter, Environment, Versions, Notes }; // Tester == tester's name. Charter == session charter. Notes == all the notes of different note types.
         public SessionStartingStage CurrentStage = SessionStartingStage.Tester; // This is used only in the beginning, in order to receive the tester name and charter text
 
+        public bool createHTML = true;
         /** Sessions **/
         /**************/
 
@@ -112,7 +113,10 @@ namespace Rapid_Reporter
                             duration.Minutes.ToString(CultureInfo.InvariantCulture).PadLeft(2, '0') + ":" +
                             duration.Seconds.ToString(CultureInfo.InvariantCulture).PadLeft(2, '0'));
                 Logger.Record("[CloseSession]: Starting csv to html method...", "Session", "info");
-                Csv2Html(_sessionFileFull, false);
+                if (createHTML)
+                {
+                    Csv2Html(_sessionFileFull, false);
+                }
             }
 
             Logger.Record("[CloseSession]: ...Session closed", "Session", "info");
